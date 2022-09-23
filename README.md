@@ -1014,6 +1014,7 @@ const MyComponent = (type) => {
 - 8.3 [Multi-word component names](#83-multi-word-component-names)
 - 8.4 [Prop definitions](#84-prop-definitions)
 - 8.5 [Vue property decorator](#85-vue-property-decorator)
+- 8.6 [Styling with Vue](#86-styling-with-vue)
 
 ### 8.1 Keys in lists
 
@@ -1138,6 +1139,42 @@ export default class MyComponent extends Vue {
 }
 </script>
 ```
+
+### 8.6 Styling with Vue
+
+When styling with Vue is preferred to use SASS with `.scss` dedicated files. 
+And assure the file is linked with you vue Single File Coponeng with `scoped` prod to avoid problem.
+**✅ Good:**
+
+```vue
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'MyComponent',
+})
+</script>
+<style src="./MyComponent.scss" lang="scss" scoped />
+```
+
+**❌ Bad:**
+
+```vue
+<script lang="ts">
+...
+</script>
+<style src="./MyComponent.scss" lang="scss" />
+```
+or
+```vue
+<script lang="ts">
+...
+</script>
+<style lang="scss">
+/* yout style */
+</style>
+```
+
 
 **[⬆ back to summary](#-summary)**
 
